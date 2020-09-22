@@ -1,5 +1,11 @@
 package com.instagram.controller;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
+
+import com.instagram.entity.InstagramUser;
 import com.instagram.service.InstagramService;
 import com.instagram.service.InstagramServiceInterface;
 
@@ -12,17 +18,49 @@ private InstagramServiceInterface isi;
 	 isi= new InstagramService();	
 	} 
 	@Override
-	public void createImage() {
-		isi.createImageService();
-		System.out.println(" Clicked Image ");
+	public void createImage()throws Exception {
+		//take input
+		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("  Image caption ");
+		String str= br.readLine();
+		
+		InstagramUser iu = new InstagramUser();
+		iu.setCaption(str);
+		
+		
+		int i = isi.createImageService(iu);
+		
+		if (i>0)
+		{
+			System.out.println(" Clicked Image ");
+		}
+		else
+		{
+			System.out.println(" Not Clicked Image ");
+		}
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteImage() {
-		isi.deleteImageService();
-		System.out.println(" Deleted ");
+	public void deleteImage() throws Exception {
+		//take input
+		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+		System.out.println(" Delete Image number ? ");
+		int num = Integer.parseInt(br.readLine());
+		
+		InstagramUser iu = new InstagramUser();
+		iu.setDelnum(num);
+		int i = isi.deleteImageService(iu);
+		if (i>0)
+		{
+			System.out.println(" Deleted Image ");
+		}
+		else
+		{
+			System.out.println(" Not deleted Image ");
+		}
+		
 		// TODO Auto-generated method stub
 		
 	}
@@ -36,9 +74,29 @@ private InstagramServiceInterface isi;
 	}
 
 	@Override
-	public void viewProfile() {
-		isi.viewProfileService();
+	public void viewProfile()throws Exception {
+		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("  Image caption ");
+		String caption= br.readLine();
+		System.out.println("  Image num ");
+		int inum = Integer.parseInt(br.readLine());
+		
+		InstagramUser iu = new InstagramUser();
+		iu.setCaption(caption);
+		iu.setDelnum(inum);
+		
+		
+		InstagramUser returnu = isi.viewProfileService(iu);
+		if(returnu!=null)
+		{
 		System.out.println(" Viewed ");
+		System.out.println("the user caption"+returnu.getCaption());
+		System.out.println("the user caption"+returnu.getDelnum());
+		}
+		else
+		{
+			System.out.println(" Not Viewed ");
+		}
 		// TODO Auto-generated method stub
 		
 	}
@@ -51,9 +109,24 @@ private InstagramServiceInterface isi;
 	}
 
 	@Override
-	public void homepageRedirect() {
+	public void homepageRedirect() throws Exception {
 		// TODO Auto-generated method stub
-		isi.homepageRedirectService();
+		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("  Image caption ");
+		String caption= br.readLine();
+		System.out.println("  Image num ");
+		int inum = Integer.parseInt(br.readLine());
+		
+		InstagramUser iu = new InstagramUser();
+		iu.setCaption(caption);
+		iu.setDelnum(inum);
+		
+		List<InstagramUser> ll = isi.homepageRedirectService(iu);
+		for(InstagramUser o:ll)
+		{
+			System.out.println("  Image caption "+o.getCaption());
+			System.out.println("  Image caption "+o.getDelnum());
+		}
 		System.out.println(" Redirected to Home ");
 	}
 

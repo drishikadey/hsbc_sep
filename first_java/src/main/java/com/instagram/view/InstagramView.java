@@ -9,7 +9,7 @@ import com.instagram.controller.InstagramControllerInterface;
 
 public class InstagramView  {
 
-	public static void main(String[] args)throws 	IOException {
+	public static void main(String[] args)throws 	Exception {
 		BufferedReader br =new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.println("---MAIN MENU---");
@@ -18,7 +18,7 @@ public class InstagramView  {
 		System.out.println("press 3 to create profile");
 		System.out.println("press 4 to view profile");
 		System.out.println("press 5 to delete profile");
-		System.out.println("press 6 to go to homepage");
+		System.out.println("press 6 to go to search");
 		
 		
 		

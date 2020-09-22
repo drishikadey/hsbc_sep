@@ -2,6 +2,7 @@ package com.first_java.service;
 
 import com.first_java.dao.FacebookDao;
 import com.first_java.dao.FacebookDaoInterface;
+import com.first_java.entity.FacebookUser;
 
 public class FacebookService implements FacebookServiceInterface{
 
@@ -11,8 +12,12 @@ private FacebookDaoInterface fd;
 		fd=new FacebookDao();
 	}
 	@Override
-	public void createProfileService() {
-		fd.createProfileDao();
+	public int createProfileService(FacebookUser fu) {
+		
+		
+		int i = fd.createProfileDao(fu);
+		return 1;
+		
 		// TODO Auto-generated method stub
 		
 	}

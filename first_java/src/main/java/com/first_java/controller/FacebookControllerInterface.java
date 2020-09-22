@@ -1,7 +1,9 @@
 package com.first_java.controller;
 
+import java.io.IOException;
+
 public interface FacebookControllerInterface {
-	void createProfile();
+	void createProfile() throws IOException;
 	void editProfile();
 	void deleteProfile();
 	void viewProfile();

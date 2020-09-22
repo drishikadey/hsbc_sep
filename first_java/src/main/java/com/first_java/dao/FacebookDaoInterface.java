@@ -1,7 +1,9 @@
 package com.first_java.dao;
 
+import com.first_java.entity.FacebookUser;
+
 public interface FacebookDaoInterface {
-	void createProfileDao();
+	int createProfileDao(FacebookUser fu);
 	void editProfileDao();
 	void deleteProfileDao();
 	void viewProfileDao();

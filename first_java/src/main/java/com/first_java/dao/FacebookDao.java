@@ -1,11 +1,16 @@
 package com.first_java.dao;
 
+import com.first_java.entity.FacebookUser;
+
 public class FacebookDao implements FacebookDaoInterface
 {
 
 	@Override
-	public void createProfileDao() {
+	public int createProfileDao(FacebookUser fu) {
 		// TODO Auto-generated method stub
+		System.out.println("Database logged");
+		return 1;
+		
 		
 	}
 

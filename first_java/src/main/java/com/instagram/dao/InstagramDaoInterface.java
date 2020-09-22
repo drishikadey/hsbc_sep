@@ -1,10 +1,15 @@
 package com.instagram.dao;
 
+import java.util.List;
+
+import com.instagram.entity.InstagramUser;
+
 public interface InstagramDaoInterface {
-	void createImageDao();
-	void deleteImageDao();
+	int createImageDao(InstagramUser iu)throws Exception;
+	int deleteImageDao(InstagramUser iu) throws Exception;
 	void createProfileDao();
-	void viewProfileSDao();
+	
 	void deleteProfileDao();
-	void homepageRedirectDao();
+	InstagramUser viewProfileDao(InstagramUser iu) throws Exception;
+	List<InstagramUser> homepageRedirectDao(InstagramUser iu) throws Exception;
 }

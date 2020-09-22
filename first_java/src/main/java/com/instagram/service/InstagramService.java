@@ -1,7 +1,13 @@
 package com.instagram.service;
 
+import java.util.List;
+
 import com.instagram.dao.InstagramDao;
+
+
 import com.instagram.dao.InstagramDaoInterface;
+
+import com.instagram.entity.InstagramUser;
 
 public class InstagramService implements InstagramServiceInterface {
 
@@ -11,16 +17,20 @@ public class InstagramService implements InstagramServiceInterface {
 		idi=new InstagramDao();
 	}
 	@Override
-	public void createImageService() {
-		idi.createImageDao();	
+	public int createImageService(InstagramUser iu)throws Exception {
+		
+		int i = idi.createImageDao(iu);
+		
+		return 1;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void deleteImageService() {
-		idi.deleteImageDao();
+	public int deleteImageService(InstagramUser iu) throws Exception {
+		int i = idi.deleteImageDao(iu);
 		// TODO Auto-generated method stub
+		return 1;
 		
 	}
 
@@ -32,8 +42,9 @@ public class InstagramService implements InstagramServiceInterface {
 	}
 
 	@Override
-	public void viewProfileService() {
-		idi.viewProfileSDao();
+	public InstagramUser viewProfileService(InstagramUser iu) throws Exception {
+		InstagramUser uu = idi.viewProfileDao(iu);
+		return(uu);
 		// TODO Auto-generated method stub
 		
 	}
@@ -46,11 +57,15 @@ public class InstagramService implements InstagramServiceInterface {
 	}
 
 	@Override
-	public void homepageRedirectService() {
-		idi.homepageRedirectDao();
+	public
+	List<InstagramUser> homepageRedirectService(InstagramUser iu) throws Exception
+	{
+		List<InstagramUser> ll = idi.homepageRedirectDao(iu);
+	return ll;
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 	
 
